@@ -1,0 +1,242 @@
+body{
+    margin: 0;
+    position: relative;
+    max-width: 100vw;
+    height: 100vh;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 13pt;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* position: fixed; */
+    width: 100vw;
+    z-index: 3;
+    /* background-color: green; */
+    /* margin: 0; */
+    
+}
+#logo{
+    flex: 1;
+    
+}
+.textLogo{
+    object-fit: contain;
+    width: 8em;
+    height: 4em;
+}
+nav{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    text-align: center */
+    /* flex: 4;
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    height: 114px;
+    /* background-color: blue; 
+    padding: 15px;
+    align-items: center; */
+}
+nav a{
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+    color: white;
+}
+nav a:hover,
+.header .menu-btn:hover{
+    background-color: #f4f4f4;
+    color: #333;
+}
+.header .logo{
+    display: block;
+    float: left;
+    padding: 10px 20px;
+}
+
+/* menu */
+
+.header .menu{
+    clear: both;
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    position: absolute;
+    /* padding: 150px 0;  */
+    top: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    text-align: center
+    
+}
+/* .links{
+    border-bottom: 1px solid white;
+    border-width: -20px;
+} */
+
+/* menu icon */
+
+.header .menu-icon{
+    cursor: pointer;
+    display: inline-block;
+    /* float: right; */
+    /* align-self: flex-end; */
+    padding: 28px 20px;
+    position: relative;
+}
+header .menu-icon .navicon{
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+    z-index: 3;
+}
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after{
+    /* creates first and last div for navicon */
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+    z-index: 3;
+}
+.header .menu-icon .navicon:before{
+    /* pushes up the first div so it shows */
+    top: 5px;
+}
+.header .menu-icon .navicon:after{
+    /* pushes up the last div so it shows */
+    top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn{
+    display: none;
+}
+.header .menu-btn:checked ~ .menu{
+    opacity: 1;
+    z-index: 2;
+}
+.header .menu-btn:checked ~ .menu-icon .navicon{
+    background: transparent;
+}
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+    background: white;
+}
+  
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+    background: white;
+}
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+.pictureSlideshow{
+    width: 100vw;
+    position: relative;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+}
+.pictures{
+    justify-content: space-evenly;
+    margin: 10px 10px 10px 20px;
+    object-fit: cover;
+    width: 350px;
+    height: 600px;
+}
+.mobileSymbol{
+    /* position: absolute;
+    opacity: 1; */
+}
+.navLinks{
+    
+}
+.links{
+    /* height: 50px;
+    line-height: 50px;
+    vertical-align: middle; */
+}
+
+@media screen and (min-width: 767px){
+    nav a{
+        color:#333;
+    }
+    .header .menu{
+        clear: none;
+        flex-flow: row wrap;
+        background-color: transparent;
+        color: #333;
+        height: auto;
+        width: auto;
+        position: initial;
+        opacity: 1;
+        align-items: center;
+        z-index: 1;
+        
+    }
+    .textLogo{
+        width: 12em;
+        height: 8em;
+    }
+    .links{
+        height: auto;
+        /* flex-basis: auto; */
+    }
+    .slide-center-out{
+        text-decoration:none;
+        display: inline-block;
+    }
+/* add a empty string after the elment with class .slide-center-out  */
+    .slide-center-out:after{
+        content: '';
+        display: block;
+        height: 1px;
+        width: 0;
+        background: transparent;
+        transition: width .5s ease, background-color .5s ease;
+        -webkit-transition: width .5s ease, background-color .5s ease;
+        -moz-transition: width .5s ease, background-color .5s ease;
+        margin: auto; /* center the cotent so it will sliding from the midddle to the left and right */
+}
+ 
+/* Change the width and background on hover, aka sliding from the middle to the left and right */
+    .slide-center-out:hover:after{
+        width: 60%;
+        background-color: #333;
+    }   
+    nav a:hover{
+        background-color: transparent;
+    }
+    .header .menu-icon{
+        display: none;
+    }
+    
+}
